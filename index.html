@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Милый уголок</title>
+<meta name="theme-color" content="#ffd9e6" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- мягкий анимированный фон -->
+<div class="bg" aria-hidden="true">
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+  <div id="bgHearts"></div>
+</div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">🌷</span>
+    <span data-i18n="app_title">Милый уголок</span>
+  </div>
+  <div class="controls">
+    <div class="lang-switch" role="group" aria-label="Язык / Sprache">
+      <button type="button" class="is-active" data-lang-btn="ru">RU</button>
+      <button type="button" data-lang-btn="de">DE</button>
+    </div>
+    <button type="button" class="icon-btn" id="btnSound" aria-label="Звук">🔇</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= ПРИВЕТСТВИЕ ================= -->
+  <section class="hero">
+    <p class="kicker" data-i18n="hero_kicker">специально для тебя</p>
+    <h1 class="hero-title">
+      <span data-i18n="hero_hi">Привет,</span>
+      <span class="hero-name">Виолета</span>
+      <span class="wink">💗</span>
+    </h1>
+    <p class="hero-sub" data-i18n="hero_text">Тут немного тепла: комплименты и один очень скучающий хомячок.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#compliment" data-scroll>🍓 <span data-i18n="btn_to_compliment">Комплимент</span></a>
+      <a class="btn btn-ghost" href="#pet" data-scroll>🐹 <span data-i18n="btn_to_pet">К хомячку</span></a>
+    </div>
+  </section>
+
+  <!-- ================= КОМплимент ================= -->
+  <section class="card" id="compliment">
+    <h2 class="card-title" data-i18n="compliment_title">💌 Комплимент по кнопке</h2>
+    <p class="card-sub" data-i18n="compliment_sub">Нажимай, пока не станет теплее.</p>
+    <div class="compliment-box">
+      <p class="compliment-text" id="complimentText" data-i18n="compliment_placeholder">Твой комплимент появится здесь…</p>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-primary" id="btnCompliment">
+        <span data-i18n="btn_compliment">Дай комплимент</span>
+      </button>
+      <button type="button" class="btn btn-ghost" id="btnCopy">
+        <span data-i18n="btn_copy">Скопировать</span>
+      </button>
+      <button type="button" class="btn btn-ghost" id="btnShare">
+        <span data-i18n="btn_share">Скинуть</span>
+      </button>
+    </div>
+    <p class="hint" id="complimentCount"></p>
+  </section>
+
+  <!-- ================= ТАМАГОЧИ ================= -->
+  <section class="card" id="pet">
+    <h2 class="card-title" data-i18n="pet_title">🐹 Хомячок Бублик</h2>
+    <p class="card-sub" data-i18n="pet_sub">Он скучает, когда тебя нет. Загляни к нему — и он напишет тебе.</p>
+
+    <div class="pet-stage">
+      <div class="pet-scene">
+        <div class="pet-wheel" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="pet-wrap" id="petWrap" title="Погладить">
+          <div class="pet-bubble" id="petBubble"></div>
+          <svg viewBox="0 0 200 200" class="pet-svg" role="img" aria-label="Хомячок">
+            <ellipse cx="100" cy="182" rx="52" ry="9" class="pet-shadow" />
+            <g class="pet-body-group">
+              <circle cx="60" cy="52" r="20" fill="#eab27a" />
+              <circle cx="140" cy="52" r="20" fill="#eab27a" />
+              <circle cx="60" cy="54" r="11" fill="#f8cdb0" />
+              <circle cx="140" cy="54" r="11" fill="#f8cdb0" />
+              <ellipse cx="100" cy="112" rx="66" ry="62" fill="#f2c48d" />
+              <ellipse cx="100" cy="130" rx="44" ry="40" fill="#fdf0dc" />
+              <g class="pet-eyes">
+                <ellipse class="pet-eye" cx="76" cy="100" rx="8" ry="9" fill="#3a2a20" />
+                <ellipse class="pet-eye" cx="124" cy="100" rx="8" ry="9" fill="#3a2a20" />
+                <circle cx="79" cy="97" r="2.6" fill="#fff" />
+                <circle cx="127" cy="97" r="2.6" fill="#fff" />
+              </g>
+              <circle cx="58" cy="122" r="10" fill="#ff9fb2" opacity=".55" />
+              <circle cx="142" cy="122" r="10" fill="#ff9fb2" opacity=".55" />
+              <path d="M94 116 q6 6 12 0 q-6 8 -12 0" fill="#d9748c" />
+              <path class="pet-mouth" id="petMouth" d="M86 126 q14 16 28 0" stroke="#3a2a20" stroke-width="3.5" fill="none" stroke-linecap="round" />
+              <ellipse cx="84" cy="168" rx="12" ry="8" fill="#eab27a" />
+              <ellipse cx="116" cy="168" rx="12" ry="8" fill="#eab27a" />
+              <text x="100" y="160" text-anchor="middle" font-size="20" class="pet-seed">🌻</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="pet-side">
+        <div class="stat">
+          <div class="stat-label"><span data-i18n="stat_hunger">Сытость</span><b id="statHunger">80%</b></div>
+          <div class="bar"><div class="bar-fill bar-hunger" id="barHunger"></div></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label"><span data-i18n="stat_happy">Настроение</span><b id="statHappy">80%</b></div>
+          <div class="bar"><div class="bar-fill bar-happy" id="barHappy"></div></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label"><span data-i18n="stat_energy">Энергия</span><b id="statEnergy">85%</b></div>
+          <div class="bar"><div class="bar-fill bar-energy" id="barEnergy"></div></div>
+        </div>
+
+        <div class="pet-actions">
+          <button type="button" class="btn btn-small" data-pet-action="feed">🍎 <span data-i18n="btn_feed">Накормить</span></button>
+          <button type="button" class="btn btn-small" data-pet-action="play">🎾 <span data-i18n="btn_play">Поиграть</span></button>
+          <button type="button" class="btn btn-small" data-pet-action="sleep">💤 <span data-i18n="btn_sleep">Спать</span></button>
+          <button type="button" class="btn btn-small" data-pet-action="pet">🤲 <span data-i18n="btn_pet">Погладить</span></button>
+          <button type="button" class="btn btn-small btn-quiet" id="btnReset"><span data-i18n="btn_reset">Начать заново</span></button>
+        </div>
+
+        <button type="button" class="btn btn-ghost btn-notify" id="btnNotify">🔔 <span data-i18n="btn_notify_on">Включить уведомления</span></button>
+        <p class="hint" id="petMoodText"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p><span data-i18n="footer_made">Сделано с любовью, для тебя</span> 💗</p>
+  <p class="footer-note" data-i18n="footer_note">Работает офлайн, ничего никуда не отправляется.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
